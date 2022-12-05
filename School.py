@@ -50,9 +50,19 @@ def main():
     person_info = new_person()
     if position == "Teacher":
         person_info += teacher_registration()
+        person_info.insert(0, position)
+    elif position == "Student":
+        person_info += student_registration()
+        person_info.insert(0, position)
     return person_info
 
-print(main())
+person_info = main()
+if person_info[0] == "Teacher":
+    teacher1 = Teacher(person_info[1], person_info[2], person_info[3], person_info[4])
+elif person_info[0] == "Student":
+    student1 = Student(person_info[1], person_info[2], person_info[3], person_info[4])
+
+
 
 
 
