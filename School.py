@@ -41,7 +41,7 @@ def student_registration():
     address = input("Enter your home address: ")
     return [group, address]
 
-def main():
+def check_position():
     position = input("Are you teacher or student?: ").capitalize()
     while True:
         if position == "Teacher" or position == "Student":
@@ -56,12 +56,16 @@ def main():
         person_info.insert(0, position)
     return person_info
 
-person_info = main()
-if person_info[0] == "Teacher":
-    teacher1 = Teacher(person_info[1], person_info[2], person_info[3], person_info[4])
-elif person_info[0] == "Student":
-    student1 = Student(person_info[1], person_info[2], person_info[3], person_info[4])
+def main():
+    person_info = check_position()
+    if person_info[0] == "Teacher":
+        teacher = Teacher(person_info[1], person_info[2], person_info[3], person_info[4])
+        return teacher
+    elif person_info[0] == "Student":
+        student = Student(person_info[1], person_info[2], person_info[3], person_info[4])
+        return student
 
+print(main().name)
 
 
 
